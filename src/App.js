@@ -19,11 +19,13 @@ function App() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     dataUsers.push(data);
-
-    // Clean inputs
-
     console.log(dataUsers);
   };
+
+  const cleanInputs = () => {
+    setData({ firstName: "", secondName: "", country: "", city: "", age: "" });
+  };
+
   return (
     <div className="App">
       <div className="container-form">
@@ -98,7 +100,12 @@ function App() {
             />
           </Form.Group>
 
-          <Button className="form__submit" variant="primary" type="submit">
+          <Button
+            onClick={cleanInputs}
+            className="form__submit"
+            variant="primary"
+            type="submit"
+          >
             Submit
           </Button>
         </Form>
