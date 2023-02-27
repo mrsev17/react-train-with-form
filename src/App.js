@@ -19,11 +19,8 @@ function App() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     dataUsers.push(data);
+    //setData({ firstName: "", secondName: "", country: "", city: "", age: "" });
     console.log(dataUsers);
-  };
-
-  const cleanInputs = () => {
-    setData({ firstName: "", secondName: "", country: "", city: "", age: "" });
   };
 
   return (
@@ -100,12 +97,7 @@ function App() {
             />
           </Form.Group>
 
-          <Button
-            onClick={cleanInputs}
-            className="form__submit"
-            variant="primary"
-            type="submit"
-          >
+          <Button className="form__submit" variant="primary" type="submit">
             Submit
           </Button>
         </Form>
