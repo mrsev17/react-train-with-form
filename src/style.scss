@@ -1,0 +1,28 @@
+body {
+  background-color: rgb(71, 91, 180);
+}
+
+.container-form {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  border: 1px solid black;
+  width: 90%;
+  border-radius: 10px;
+  background-color: rgb(226, 227, 230);
+  .form__wrapper {
+    padding: 15px;
+  }
+
+  input {
+    border: 1px solid black;
+    width: 80%;
+    outline: none;
+    &:focus {
+      box-shadow: none;
+      border: 1px solid black;
+    }
+  }
+  .form__submit {
+    width: 100%;
+  }
+}
