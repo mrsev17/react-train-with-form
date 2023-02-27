@@ -6,8 +6,9 @@ import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import UserCard from "./components/UserCard";
 
+const dataUsers = [];
+
 function App() {
-  const dataUsers = [];
   const [data, setData] = useState({
     firstName: "",
     secondName: "",
@@ -19,7 +20,7 @@ function App() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     dataUsers.push(data);
-    //setData({ firstName: "", secondName: "", country: "", city: "", age: "" });
+    setData({ firstName: "", secondName: "", country: "", city: "", age: "" });
     console.log(dataUsers);
   };
 
