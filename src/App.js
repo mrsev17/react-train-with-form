@@ -6,22 +6,35 @@ import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import UserCard from "./components/UserCard";
 
-const dataUsers = [];
-
 function App() {
-  const [data, setData] = useState({
+  const [formData, setFormData] = useState({
     firstName: "",
     secondName: "",
     country: "",
     city: "",
     age: "",
   });
+  const [formList, setFormList] = useState([]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    dataUsers.push(data);
-    setData({ firstName: "", secondName: "", country: "", city: "", age: "" });
-    console.log(dataUsers);
+    setFormList([...formList, formData]);
+    setFormData({
+      firstName: "",
+      secondName: "",
+      country: "",
+      city: "",
+      age: "",
+    });
+    console.log(formList);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   return (
@@ -34,11 +47,11 @@ function App() {
           >
             <Form.Label className="form__label">First Name</Form.Label>
             <Form.Control
-              name="firstname"
-              value={data.firstName}
+              name="firstName"
+              value={formData.firstName}
               type="text"
               placeholder="Enter First Name"
-              onChange={(e) => setData({ ...data, firstName: e.target.value })}
+              onChange={handleChange}
             />
           </Form.Group>
 
@@ -48,11 +61,11 @@ function App() {
           >
             <Form.Label className="form__label">Second Name</Form.Label>
             <Form.Control
-              name="secondname"
-              value={data.secondName}
+              name="secondName"
+              value={formData.secondName}
               type="text"
               placeholder="Enter Second Name"
-              onChange={(e) => setData({ ...data, secondName: e.target.value })}
+              onChange={handleChange}
             />
           </Form.Group>
 
@@ -63,10 +76,10 @@ function App() {
             <Form.Label className="form__label">Country</Form.Label>
             <Form.Control
               name="country"
-              value={data.country}
+              value={formData.country}
               type="text"
               placeholder="Enter Country"
-              onChange={(e) => setData({ ...data, country: e.target.value })}
+              onChange={handleChange}
             />
           </Form.Group>
 
@@ -77,10 +90,10 @@ function App() {
             <Form.Label className="form__label">City</Form.Label>
             <Form.Control
               name="city"
-              value={data.city}
+              value={formData.city}
               type="text"
               placeholder="Enter City"
-              onChange={(e) => setData({ ...data, city: e.target.value })}
+              onChange={handleChange}
             />
           </Form.Group>
 
@@ -91,10 +104,10 @@ function App() {
             <Form.Label className="form__label">Age</Form.Label>
             <Form.Control
               name="age"
-              value={data.age}
+              value={formData.age}
               type="number"
               placeholder="Enter Age"
-              onChange={(e) => setData({ ...data, age: e.target.value })}
+              onChange={handleChange}
             />
           </Form.Group>
 

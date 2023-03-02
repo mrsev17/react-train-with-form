@@ -14,13 +14,13 @@ body {
   }
 
   input {
-    border: 1px solid black;
+    border: none;
     border-radius: 10px;
     width: 80%;
     outline: none;
     &:focus {
       box-shadow: none;
-      border: 1px solid black;
+      border: none;
     }
   }
   .form__submit {
@@ -30,7 +30,7 @@ body {
   .form__user-card {
     max-width: 320px;
     margin: 0 auto;
-    border: 1px solid whitesmoke;
+    border: 0 solid whitesmoke;
     border-radius: 10px;
     background-color: whitesmoke;
     margin-bottom: 20px;
