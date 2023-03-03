@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.scss";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
-import UserCard from "./components/UserCard";
+import Users from "./components/Users";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -19,6 +19,7 @@ function App() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setFormList([...formList, formData]);
+
     setFormData({
       firstName: "",
       secondName: "",
@@ -26,7 +27,6 @@ function App() {
       city: "",
       age: "",
     });
-    console.log(formList);
   };
 
   const handleChange = (e) => {
@@ -115,10 +115,29 @@ function App() {
             Submit
           </Button>
         </Form>
-        <UserCard />
+
+        <Users data={formList} />
+        
       </div>
     </div>
   );
 }
 
 export default App;
+
+/*
+{formList.map((user) => {
+  const { firstName, secondName, country, city, age } = user;
+  return (
+    <div key={`${firstName} ${secondName} ${country} ${city} ${age}`}>
+      <h2>
+        {firstName} {secondName}
+      </h2>
+      <h3>
+        {country} {city}
+      </h3>
+      <p>{age} years old</p>
+    </div>
+  );
+})}
+*/
